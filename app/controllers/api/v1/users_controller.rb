@@ -1,5 +1,7 @@
 class Api::V1::UsersController < ApplicationController
   skip_before_action :authorized, only: [:create]
+  # https://github.com/rails/rails/issues/17216
+  wrap_parameters :user, include: [:password, :email]
 
 
   def profile
