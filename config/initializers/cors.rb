@@ -7,9 +7,6 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    if Rails.env.production?
-      raise # Force me to remember to change this
-    end
     origins '*'
 
     resource '*',
